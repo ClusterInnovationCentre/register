@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>hashinclude</title>
+	<meta name="description" content="HashInclude - Cluster Innovation Centre - Registration Page">
+	<meta name="author" content="Devesh Khandelwal">
+
+	<!-- bower:css -->
+	<!-- endbower -->
+
+	<link rel=stylesheet href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel=stylesheet href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel=stylesheet href="bower_components/css3-social-signin-buttons/auth-buttons.css">
+	<link href="packages/mui-0.2.0-rc3/dist/css/mui.min.css" rel="stylesheet" type="text/css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/styles.min.css"> -->
+	<link rel=stylesheet href="css/styles.css">
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!-- bower:css -->
+	<!-- endbower -->
+
+	<div class="wrapper">
+		<div class="box">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<!-- sidebar -->
+				<div class="column col-md-4 col-sm-12" id="sidebar">
+					<!-- TODO - Implement course and year selection -->
+					
+					<div class="row">
+						<ul class="nav">
+							<li>
+								<legend>Register <a class="logo" href="https://fb.com/hashinclude.cic">f</a><a class="logo" href="https://fb.com/hashinclude.cic">f</a></legend>
+								<div class="mui-select">
+									<select id="course">
+										<option value="default">Course <span class="label-hint">(required)</span></option>
+										<option value="mscme">M. Sc. Mathematics Education</option>
+										<option value="humanities">B. A. (Humanities and Social Sciences)</option>
+										<option value="itmi">B. Tech. (ITMI)</option>
+									</select>
+								</div>
+								<div class="mui-textfield">
+									<input type="text" class="mui-textfield__input" id="enroll">
+									<label class="mui-textfield__label--floating">Roll Number <span class="label-hint">(required)</span></label>
+								</div>
+								<div class="mui-textfield">
+									<input type="text" class="mui-textfield__input" id="phone">
+									<label class="mui-textfield__label--floating">Phone <span class="label-hint">(optional)</span></label>
+								</div>
+								<div class="mui-textfield">
+									<textarea class="mui-textfield__input" id="extra"></textarea>
+									<label class="mui-textfield__label--floating">Want to add more...</label>
+								</div>
+							</li>
+							<li>
+								<a class="btn btn-auth btn-facebook" href="#" onclick="login('facebook')">Register with <b>Facebook</b></a>
+							</li>
+							<li>
+								<a class="btn btn-auth btn-google" href="#" onclick="login('google')">Register with <b>Google+</b></a>
+							</li>
+							<li>
+								<a class="btn btn-auth btn-github" href="#" onclick="login('github')">Register with <b>GitHub</b></a>
+							</li>
+							<li>
+								<a class="btn btn-auth btn-windows" href="#" onclick="login('windows')">Register with <b>Microsoft Account</b></a>
+							</li>
+						</ul>
+					</div>
+					<!-- <ul class="nav hidden-xs" id="sidebar-footer">
+						<li>
+						  <a href="http://www.bootply.com"><h3>Basis</h3>Made with <i class="glyphicon glyphicon-heart-empty"></i> by Bootply</a>
+						</li>
+					</ul> -->
+				</div>
+				<!-- /sidebar -->
+				<div class="col-md-4"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="packages/mui-0.2.0-rc3/dist/js/mui.min.js"></script>
+	<script src="bower_components/typed.js/dist/typed.min.js"></script>
+	<script class="pre" src="bower_components/hello/dist/hello.all.min.js"></script>
+	<script src="js/scripts.js"></script>
+	
+</body>
+</html>

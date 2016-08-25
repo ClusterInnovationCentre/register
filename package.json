@@ -1,0 +1,10 @@
+{
+  "name": "Cluster Innovation Centre - Email Registration",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "dependencies": {
+    "wiredep": "^3.0.0-beta"
+  }
+}

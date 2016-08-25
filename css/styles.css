@@ -1,0 +1,312 @@
+html
+{
+	height: 100%;
+}
+
+body
+{
+	background-color: #999;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: #000;
+	overflow: hidden;
+	height: 100%;
+}
+
+.typed-cursor{
+	opacity: 1;
+	-webkit-animation: blink 0.7s infinite;
+	-moz-animation: blink 0.7s infinite;
+	animation: blink 0.7s infinite;
+}
+@keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
+@-moz-keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
+
+.description
+{
+	padding: 10px;
+	background-color: transparent;
+	color: #fff;
+	text-align: justify;
+	position: relative;
+	vertical-align: bottom;
+	font-family: "Consolas, Inconsolata, Open Sans, Helvetica Neue, Calibri";
+}
+
+.description > p {
+	font-size: 1.2em;
+	text-shadow:
+    -1px -1px 0 #000,
+    0px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    0px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+@media(min-width: 768px) {
+
+	.content-container
+	{
+		width: 100%;
+		height: 100%;
+		background-color: transparent;
+	}
+
+	.typed-container
+	{
+		padding: 5px;
+		padding-bottom: 25px;
+		position: absolute;
+		bottom: 0px;
+		display: inline-block;
+	}
+	
+}
+
+.typed-container > h1
+{
+	font-family: "Consolas", "Ubuntu Mono", "Source Code Pro", "Monaco";
+	font-weight: 100;
+	font-size: 4em;
+	color: #dddddd;
+}
+
+legend > a {
+	display: inline;
+	position: absolute;
+	right: 0px;
+}
+
+/* move special fonts to HTML head for better performance */
+/*@import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,700');*/
+
+
+/* custom template */
+html, body {
+   height: 100%;
+   font-family:'Open Sans',arial,sans-serif;
+}
+
+a {
+  color:#222222;
+}
+
+.wrapper, .row {
+   height: 100%;
+   margin-left:0;
+   margin-right:0;
+}
+
+.wrapper:before, .wrapper:after,
+.column:before, .column:after {
+	content: "";
+	display: table;
+}
+
+.wrapper:after,
+.column:after {
+	clear: both;
+}
+
+.column {
+	height: 100%;
+	overflow: auto;
+	*zoom:1;
+}
+
+.column .padding {
+	padding: 20px;
+}
+
+.box {
+	bottom: 0; /* increase for footer use */
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), url(../img/gh-graph-bg.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+.divider {
+	margin-top:32px;
+}
+
+#main {
+
+}
+
+#main .img-circle {
+  margin-top:18px;
+  height:70px;
+  width:70px;
+}
+
+#sidebar
+{
+	padding-top: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+#sidebar, #sidebar a {
+/*	color:#ffffff;
+	background-color:transparent;
+	text-shadow:1px 0 1px #ffffff;*/
+}
+
+#sidebar a.logo {
+  display: inline-block;
+  padding:3px;
+  background-color:#4862A3;
+  color:#cccccc;
+  height:32px;
+  width:32px;
+  margin: 0px;
+  font-size:21px;
+  font-weight:700;
+  text-align:center;
+  text-decoration:none;
+  text-shadow:0 0 0;
+}
+#sidebar-footer {
+  position:absolute;bottom:5px;
+}
+#footer {
+  margin-bottom:20px;
+}
+
+/* center and adjust the sidebar contents on smaller devices */
+@media (max-width: 768px) {
+  #sidebar,#sidebar a.logo {
+	text-align:center;
+	margin:0 auto;
+	margin-top:30px;
+	font-size:26px;
+  }
+  #sidebar a.logo {
+	font-size:50px;
+	height:75px;
+	width:75px;
+	margin-bottom:30px;
+  }
+}
+
+
+
+
+/* bootstrap overrides */
+
+h1,h2,h3 {
+   font-weight:800;
+   font-family:'Open Sans',arial,sans-serif;
+}
+
+.jumbotron {
+  background-color:transparent;
+}
+.label-default {
+  background-color:#dddddd;
+}
+.page-header {
+  margin-top: 55px;
+  padding-top: 9px;
+  border-top:1px solid #eeeeee;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.col-sm-9.full {
+	width: 100%;
+}
+
+small.text-muted {
+  font-family:courier,courier-new,monospace;
+}
+
+.mui-textfield__label--floating {
+	color: #dddddd;
+}
+
+.mui-select > option :hover {
+	color: #000000;
+	background-color: #000000;
+}
+
+.btn-auth {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: none;
+}
+
+.label-hint {
+	font-size: smaller;
+	color: #888;
+}
+
+blockquote {
+  background: rgba(175, 175, 175, 0.2);
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+blockquote:before {
+  color: #ccc;
+  content: no-open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+.hashinclude {
+	color: rgba(50, 200, 50, 0.8);
+}
+
+blockquote > a {
+	color: rgba(200, 200, 200, 0.8);
+	text-decoration: none;
+}
+
+blockquote > a:hover {
+	color: rgba(200, 200, 200, 0.8);
+	text-decoration: none;
+}
+
+.btn.disabled, .btn[disabled] {
+    cursor: default;
+    background-image: none;
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    color: #333;
+    background-color: #E6E6E6;
+}

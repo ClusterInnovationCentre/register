@@ -1,0 +1,4 @@
+*.log
+node_modules/
+img/one.PNG
+compiler.jar
