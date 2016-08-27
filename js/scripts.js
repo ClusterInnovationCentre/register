@@ -103,10 +103,10 @@ function prepareRequest(r, auth) {
 localStorage.clear();
 sessionStorage.clear();
 hello.init({
-	facebook: '1634502443492240',
+	facebook: '1582390625389617',
 	google: '970528374418-e2d4lk9te77upvmqgpr1apmtd9ecf11m.apps.googleusercontent.com',
 	github: '6879fbfaf6adeb6190c2',
-	windows: '000000004C168A78'
+	windows: '00000000481ADE3C'
 });
 
 hello.logout();
