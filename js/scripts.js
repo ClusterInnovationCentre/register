@@ -72,6 +72,34 @@ $(function () {
 	$('.mui-textfield').on('keydown', '#phone', function (e) { -1 !== $.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) || /65|67|86|88/.test(e.keyCode) && (!0 === e.ctrlKey || !0 === e.metaKey) || 35 <= e.keyCode && 40 >= e.keyCode || (e.shiftKey || 48 > e.keyCode || 57 < e.keyCode) && (96 > e.keyCode || 105 < e.keyCode) && e.preventDefault() });
 })
 
+function prepareRequest(r, auth) {
+	var payload = {};
+	payload.name = r.name;
+	payload.network = auth.network;
+	payload.email = r.email;
+	payload.type = $('#type').val();
+	payload.phone = $('#phone').val();
+	payload.extra = $('#extra').val();
+	payload.dump = JSON.stringify(r);
+	payload.year = $('#year').val();
+	payload.timestamp = Date.now();
+	payload.communities = "";
+
+	if ($('#type').val() === 'student') {
+		payload.id = $('#enroll').val();
+		payload.course = $('#course').val();
+	}
+	else {
+		payload.department = $('#department').val();
+	}
+
+	$('#communities > label > input').each(function (index) {
+		payload.communities += $(this).prop('checked') ? $(this).val() + "," : "";
+	});
+
+	return payload;
+}
+
 localStorage.clear();
 sessionStorage.clear();
 hello.init({
@@ -121,57 +149,27 @@ hello.on('auth.login', function (auth) {
 				url: "https://sheetsu.com/apis/v1.0/667af32ec687/search?email=" + r.email,
 				statusCode: {
 					404: function () {
-
-
-						var payload = {};
-						payload.name = r.name;
-						payload.network = auth.network;
-						payload.email = r.email;
-						payload.type = $('#type').val();
-						payload.phone = $('#phone').val();
-						payload.extra = $('#extra').val();
-						payload.dump = JSON.stringify(r);
-						payload.year = $('#year').val();
-						payload.timestamp = Date.now();
-						payload.communities = "";
-
-						if ($('#type').val() === 'student') {
-							payload.id = $('#enroll').val();
-							payload.course = $('#course').val();
-						}
-						else {
-							payload.department = $('#department').val();
-						}
-
-						$('#communities > label > input').each(function (index) {
-							payload.communities += $(this).prop('checked') ? $(this).val() + "," : "";
-						});
-
 						$.ajax({
 							url: 'https://sheetsu.com/apis/v1.0/667af32ec687',
 							type: 'post',
-							data: payload,
+							data: prepareRequest(r, auth),
 							dataType: 'json',
 							success: function (response) {
 								console.log(response);
 								alert("Registered Successfully!");
 								$('a').disable(false);
 							},
-							error: function (jqXHR, response, e) { 
+							error: function (jqXHR, response, e) {
 								console.log(e);
-							 }
-
+							}
 						});
-					}
-
-					,
+					},
 					200: function () {
 						console.log("User already registered.");
 						alert("Already registered!");
 						$('a').disable(false);
 					}
 				}
-
 			});
 		}
 		else {
