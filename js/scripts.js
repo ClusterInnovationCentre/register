@@ -129,6 +129,7 @@ function login(network) {
 		return;
 	}
 
+	hello('github').login().then('complete', function(e){console.log(e);});
 	hello(network).login({ scope: 'email' });
 }
 
