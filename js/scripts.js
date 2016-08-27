@@ -14,19 +14,34 @@ console.log('      ////         ////                ');
 */
 
 
+$('#course').prop('disabled', true);
+$('#department').prop('disabled', true);
+$('#enroll').prop('disabled', true);
+$('.btn-auth').addClass('disabled');
 
-// Re-enable the below code for typind animation.
+$('#type').on('change', function(e) {
+	var optionSelected = $("option:selected", this);
+    var valueSelected = this.value;
 
-$( document ).ready(function()
-{
-	$("#typed-title").typed(
-	{
-		strings: ["hash", "^1000#^1000include"],
-		typeSpeed: 90,
-		startDelay: 1000,
-		backSpeed: 0,
-		backDelay: 2000
-	});
+	if (valueSelected === "default") {
+		$('#course').prop('disabled', true);
+		$('#department').prop('disabled', true);
+		$('#enroll').prop('disabled', true);
+		$('.btn-auth').addClass('disabled');
+	}
+	else {
+		$('.btn-auth').removeClass('disabled');
+		if (valueSelected === "student") {
+			$('#course').prop('disabled', false);
+			$('#enroll').prop('disabled', false);
+			$('#department').prop('disabled', true);
+		}
+		if (valueSelected === "employee") {
+			$('#department').prop('disabled', false);
+			$('#course').prop('disabled', true);
+			$('#enroll').prop('disabled', true);
+		}
+	}
 });
 
 // Code to disable auth providers link.
@@ -61,8 +76,8 @@ localStorage.clear();
 sessionStorage.clear();
 hello.init({
 	facebook: '1634502443492240',
-	google: '615042929237-ephb8jem6h6q8vf83e6d0db50qi2dmrs.apps.googleusercontent.com',
-	github: 'cdbd672cb7a4de29c76b',
+	google: '970528374418-e2d4lk9te77upvmqgpr1apmtd9ecf11m.apps.googleusercontent.com',
+	github: '6879fbfaf6adeb6190c2',
 	windows: '000000004C168A78'
 });
 
@@ -70,13 +85,23 @@ hello.logout();
 
 function login(network) {
 	$('a').disable(true);
-	if ($('#course').val() === 'default' || $('#year').val() === 'default') {
+	if ($('#type').val() === "default") {
+		alert('Please select type and enter details to continue !!!');
+		$('a').disable(false);
+		return;
+	}
+	if ($('#type').val() === "employee" && ($('#department').val() === 'default' || $('#year').val() === 'default')) {
+		alert('Please select department and year to continue !!!');
+		$('a').disable(false);
+		return;
+	}
+	if ($('#type').val() === "student" && ($('#course').val() === 'default' || $('#year').val() === 'default')) {
 		alert('Please select course and year to continue !!!');
 		$('a').disable(false);
+		return;
 	}
-	else{
-		hello(network).login({scope: 'email'});
-	}
+	
+	hello(network).login({scope: 'email'});
 }
 
 hello.on('auth.login', function(auth) {
@@ -93,15 +118,38 @@ hello.on('auth.login', function(auth) {
 		if (r.email != undefined)
 		{
 			// Posting to the sheetsu API.
-			$.get("https://sheetsu.com/apis/ba75adb2",
+			$.get("https://sheetsu.com/apis/v1.0/667af32ec687/email/" + r.email,
 				function( data ){
 					if(data.status === 200 && data.success === true)
 					{
 						console.log(data.result);
 						if(($.grep(data.result, function(e){ return e.email === r.email })).length === 0)
 						{
+							var payload = { };
+							payload.name = r.name;
+							payload.network = auth.network;
+							payload.email = r.email;
+							payload.type = $('#type').val();
+							payload.phone = $('#phone').val();
+							payload.extra = $('#extra').val();
+							payload.dump = JSON.stringify(r);
+							payload.year = $('#year').val();
+							payload.timestamp = Date.now();
+							payload.communities = "";
+
+							if ($('#type') === 'student') {
+								payload.course = $('#course').val();
+							}
+							else {
+								payload.department = $('#department').val();
+							}
+
+							$('#communities').each(function (index) {
+								payload.communities += $(this).is(':checked') ? "," + $(this).val() : "";
+							});
+
 							$.ajax({
-								url: 'https://sheetsu.com/apis/ba75adb2',
+								url: 'https://sheetsu.com/apis/v1.0/667af32ec687',
 								type: 'post',
 								data: {
 									name: r.name,
