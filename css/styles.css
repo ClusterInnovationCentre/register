@@ -140,7 +140,7 @@ a {
 	position: absolute;
 	right: 0;
 	top: 0;
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%), url(../img/gh-graph-bg.png);
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
@@ -149,10 +149,6 @@ a {
 
 .divider {
 	margin-top:32px;
-}
-
-#main {
-
 }
 
 #main .img-circle {
@@ -309,4 +305,26 @@ blockquote > a:hover {
     box-shadow: none;
     color: #333;
     background-color: #E6E6E6;
+}
+
+.footer {
+	height: auto;
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: 10px;
+	width: 100%;
+	padding: 10px;
+	font-size: 12pt;
+	color: #555;
+}
+
+svg {
+	vertical-align: text-bottom; 
+}
+
+pre {
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
 }
