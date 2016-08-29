@@ -14,10 +14,10 @@ console.log('      ////         ////                ');
 */
 
 
-// $('#course').prop('disabled', true);
-// $('#department').prop('disabled', true);
-// $('#enroll').prop('disabled', true);
-// $('.btn-auth').addClass('disabled');
+$('#course').prop('disabled', true);
+$('#department').prop('disabled', true);
+$('#enroll').prop('disabled', true);
+$('.btn-auth').addClass('disabled');
 
 $('#type').on('change', function (e) {
 	var optionSelected = $("option:selected", this);
@@ -129,7 +129,6 @@ function login(network) {
 		return;
 	}
 
-	hello('github').login().then('complete', function(e){console.log(e);});
 	hello(network).login({ scope: 'email' });
 }
 
@@ -141,7 +140,7 @@ hello.on('auth.login', function (auth) {
 
 		// Authenticated succesfully.
 
-		console.log("Network: " + auth.network + ", " + "User: " + r.name + ", " + "E-Mail: " + r.email + ", " + "Response dump: " + JSON.stringify(r));
+		// console.log("Network: " + auth.network + ", " + "User: " + r.name + ", " + "E-Mail: " + r.email + ", " + "Response dump: " + JSON.stringify(r));
 
 		// Check if email is available or not.
 		if (r.email != undefined) {
@@ -161,7 +160,7 @@ hello.on('auth.login', function (auth) {
 								$('a').disable(false);
 							},
 							error: function (jqXHR, response, e) {
-								console.log(e);
+								// console.log(e);
 							}
 						});
 					},
@@ -180,7 +179,7 @@ hello.on('auth.login', function (auth) {
 
 }, function (e) {
 	alert('Unknown error occurred!!!');
-	console.log(e);
+	// console.log(e);
 	$('a').disable(true);
 });
 
