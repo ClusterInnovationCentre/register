@@ -146,11 +146,11 @@ hello.on('auth.login', function (auth) {
 		if (r.email != undefined) {
 			// Posting to the sheetsu API.
 			$.ajax({
-				url: "https://sheetsu.com/apis/v1.0/667af32ec687/search?email=" + r.email,
+				url: "https://sheetsu.com/apis/v1.0/878b0e8dee9b/search?email=" + r.email,
 				statusCode: {
 					404: function () {
 						$.ajax({
-							url: 'https://sheetsu.com/apis/v1.0/667af32ec687',
+							url: 'https://sheetsu.com/apis/v1.0/878b0e8dee9b',
 							type: 'post',
 							data: prepareRequest(r, auth),
 							dataType: 'json',
